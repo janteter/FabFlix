@@ -1,0 +1,145 @@
+<!-- This example is following frontend and backend separation.
+
+This .html performs two steps:
+1. Create a html template skeleton, with all the elements defined (some left empty) and named with ids.
+2. Load single-star.js to populate the data into empty elements.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../background.css">
+
+    <title>Add Star</title>
+    <style>
+        tbody {
+            text-align: center;
+        }
+
+        #checkout_header {
+            margin: 0 auto;
+            display: flex;
+            position: relative;
+            & :is(h1) {
+                text-align: center;
+                width: 100%;
+            }
+
+            & :is(a) {
+                position: absolute;
+                right: 20px;
+                bottom: 8px;
+            }
+        }
+
+        body {
+            color: white;
+        }
+
+        #customer_input {
+            text-align: center;
+        }
+
+        #place_order {
+            display: inline-block;
+            text-align: left;
+        }
+
+        .payment_input {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        #payment_messages {
+            text-align: center;
+        }
+
+        #add_star_button {
+            background-color: forestgreen;
+            font-size: large;
+            cursor: pointer;
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="top-bar">
+    <!-- Links -->
+    <div id="links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="add-star.html">Add Star</a>
+        <a href="add-movie.html">Add Movie</a>
+        <a href="../index.html">Home</a>
+        <a href="../results.html">Movie List Page</a>
+        <a href="../cart.html">Checkout</a>
+    </div>
+
+    <!-- Search Bars -->
+    <form id = "search" method = "POST" action = "#">
+        <label>
+            <input name="title" type="text" class="search-bar"
+                   placeholder="Title" value = "">
+        </label>
+        <label>
+            <input name="year" type="number" class="search-bar"
+                   placeholder="Year" value = "">
+        </label>
+        <label>
+            <input name="director" type="text" class="search-bar"
+                   placeholder="Director" value = "">
+        </label>
+        <label>
+            <input name="star" type="text" class="search-bar"
+                   placeholder="Star" value = "">
+        </label>
+        <!-- Search Button -->
+        <input type = "submit" id="search-button" value="Search">
+    </form>
+
+</div>
+
+<div id="checkout_header">
+    <h1>Add Star</h1>
+</div>
+
+<div id="payment_messages">
+    <h2 id="please_enter_payment">Please enter star details</h2>
+    <h5 id="payment_message"></h5>
+</div>
+
+<div id="customer_input">
+    <form ACTION="#" id="place_order" METHOD="post">
+        <label class="payment_input" for="star_name">First name:</label>
+        <input class="payment_input" type="text" id="star_name" name ="star_name" required>
+        <label class="payment_input" for="star_dob">Birth year:</label>
+        <input class="payment_input" type="number" id="star_dob" name ="star_dob" min="1">
+        <input class="payment_input" type="submit" value="Add Star" id="add_star_button">
+    </form>
+</div>
+
+
+
+<!-- Load jQuery and Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!-- Load our own JS file -->
+<!-- The path is relative to single-star.html, since these two files are in the same directory -->
+<!-- Note the url does not contain a "/" in the beginning, which means the url is relative to current path
+        otherwise the url is relative to the root path-->
+<script src="add-star.js"></script>
+
+</body>
+</html>

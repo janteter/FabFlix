@@ -1,0 +1,177 @@
+<!-- This example is following frontend and backend separation.
+
+This .html performs two steps:
+1. Create a html template skeleton, with all the elements defined (some left empty) and named with ids.
+2. Load single-star.js to populate the data into empty elements.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="background.css">
+
+    <title id = "single_movie_title"></title>
+    <style>
+        #movie_topbar
+        {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+            margin: auto;
+            color: #ffffff;
+        }
+
+        #tables
+        {
+            display: flex;
+        }
+
+        #movie_stars_table
+        {
+            margin: 0 auto;
+            max-width: 35%;
+            text-align: center;
+            background-color: #ffffff; /* White for the table background */
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #movie_genres_table {
+            margin: 0 auto;
+            max-width: 35%;
+            text-align: center;
+            background-color: #ffffff; /* White for the table background */
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #add_to_cart {
+            margin: 0 auto;
+            max-width: 15%;
+            text-align: center;
+        }
+
+        tbody {
+            text-align: center;
+        }
+
+        #stars_first_row, #genres_first_row
+        {
+            background: #ffd200;
+        }
+
+        #movie_header{
+            margin: 0 auto;
+            display: flex;
+            position: relative;
+            & :is(h1) {
+                text-align: center;
+                width: 100%;
+            }
+
+            & :is(a) {
+                position: absolute;
+                right: 20px;
+                bottom: 8px;
+            }
+        }
+
+        #fulltext-search-bar {
+            width: 500px
+        }
+    </style>
+</head>
+<body>
+    <div id="top-bar">
+        <!-- Links -->
+        <div id="links">
+            <a href="index.html">Home</a>
+            <a href="top20movies.html">Top20</a>
+            <a href="results.html">Movie List Page</a>
+            <a href="cart.html">Checkout</a>
+        </div>
+
+        <!-- Search Bars -->
+        <form id="fulltext-search" method="POST" action ="#">
+            <label>
+                <input name="fulltext-query" type="text" id="fulltext-search-bar"
+                       placeholder="Fulltext Search">
+                <input type="submit" class="search-button" value="Search">
+            </label>
+        </form>
+    </div>
+
+    <div id="movie_header">
+        <h1 id = "single_movie_header"></h1>
+    </div>
+    <a href="cart.html"> <button> Go To Cart</button></a>
+
+
+    <!-- H3 body is left empty here, will be populated with the data retrieved with single-star.js -->
+    <!-- single-star.js will find this html element by it's id "movie_info" -->
+    <div id = "movie_topbar">
+        <h3 id="movie_year">Year: </h3>
+        <h3 id="movie_director">Director: </h3>
+        <h3 id="movie_rating">Rating: </h3>
+    </div>
+
+    <div id = "tables">
+        <table id=movie_stars_table class="table table-striped">
+            <thead>
+            <tr id = "stars_first_row">
+                <th>Stars</th>
+            </tr>
+            </thead>
+
+            <!-- Table body is left empty here, will be populated with the data retrieved with single-star.js -->
+            <!-- single-star.js will find this html element by it's id "movie_table_body" -->
+            <tbody id=movie_stars_table_body></tbody>
+        </table>
+
+        <table id=movie_genres_table class="table table-striped">
+            <thead>
+            <tr id = "genres_first_row">
+                <th>Genres</th>
+            </tr>
+            </thead>
+
+            <!-- Table body is left empty here, will be populated with the data retrieved with single-star.js -->
+            <!-- single-star.js will find this html element by it's id "movie_table_body" -->
+            <tbody id=movie_genres_table_body></tbody>
+        </table>
+    </div>
+
+    <div id = "add_to_cart">
+        <form ACTION="#" id="cart" METHOD="post">
+            <br>
+            <label>
+                <input type="submit" VALUE="Add to Cart">
+            </label>
+        </form>
+    </div>
+
+    <!-- Load jQuery and Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- include jquery autocomplete JS  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.11/jquery.autocomplete.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Load our own JS file -->
+    <!-- The path is relative to single-star.html, since these two files are in the same directory -->
+    <!-- Note the url does not contain a "/" in the beginning, which means the url is relative to current path
+            otherwise the url is relative to the root path-->
+    <script src="single-movie.js"></script>
+    <script src="autocomplete.js"></script>
+</body>
+</html>

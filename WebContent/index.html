@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="background.css">
+
+    <style>
+        #welcome_message {
+            text-shadow: 1px 1px 3px #000;
+        }
+
+        .browse_by {
+            padding: 20px;
+            text-align: center;
+            color: lightgray;
+        }
+
+        #browse_genre_links {
+            display: grid;
+            grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+        }
+
+        #browse_prefix_links {
+            text-align: center;
+        }
+
+        #browse_prefix_links a {
+            display: inline-block;
+            margin-bottom: 5px;
+            color: lightskyblue;
+        }
+
+        .browse_links a {
+            text-align: center;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: lightskyblue;
+        }
+
+        .browse_links a:hover {
+            text-decoration: underline;
+            color: #007bff; // lightskyblue;
+        }
+
+        #fulltext-search-bar {
+            width: 500px
+        }
+
+        #advanced-search {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+    </style>
+    <title>Movie List</title>
+</head>
+
+<body>
+    <div id="top-bar">
+        <!-- Links -->
+        <div id="links">
+            <a href="index.html">Home</a>
+            <a href="top20movies.html">Top20</a>
+            <a href="results.html">Movie List Page</a>
+            <a href="cart.html">Checkout</a>
+        </div>
+
+        <form id="fulltext-search" method="POST" action ="#">
+            <label>
+                <input name="fulltext-query" type="text" id="fulltext-search-bar"
+                       placeholder="Fulltext Search" class="search-bar">
+                <input type="submit" class="search-button" value="Search">
+            </label>
+        </form>
+    </div>
+
+
+    <h1 id="welcome_message">Welcome to Fabflix!</h1>
+
+    <!-- Search Bars -->
+    <h2 class="browse_by">Advanced Search</h2>
+    <div id="advanced-search">
+        <form id = "search" method = "POST" action = "#">
+            <label>
+                <input name="title" type="text" class="search-bar"
+                       placeholder="Title" value = "">
+            </label>
+            <label>
+                <input name="year" type="number" class="search-bar"
+                       placeholder="Year" value = "">
+            </label>
+            <label>
+                <input name="director" type="text" class="search-bar"
+                       placeholder="Director" value = "">
+            </label>
+            <label>
+                <input name="star" type="text" class="search-bar"
+                       placeholder="Star" value = "">
+            </label>
+            <!-- Search Button -->
+            <input type = "submit" class="search-button" value="Search">
+        </form>
+    </div>
+
+    <!-- Rest of your content -->
+    <!-- Browse By Genre -->
+    <h2 class="browse_by">Browse By Genre</h2>
+    <div class="browse_links" id = "browse_genre_links">
+    </div>
+
+    <h2 class="browse_by">Browse By Movie Title</h2>
+    <div class="browse_links" id="browse_prefix_links">
+        <div class="letters">
+            <a href="results.html?genre=&prefix=A">A</a>
+            <a href="results.html?genre=&prefix=B">B</a>
+            <a href="results.html?genre=&prefix=C">C</a>
+            <a href="results.html?genre=&prefix=D">D</a>
+            <a href="results.html?genre=&prefix=E">E</a>
+            <a href="results.html?genre=&prefix=F">F</a>
+            <a href="results.html?genre=&prefix=G">G</a>
+            <a href="results.html?genre=&prefix=H">H</a>
+            <a href="results.html?genre=&prefix=I">I</a>
+            <a href="results.html?genre=&prefix=J">J</a>
+            <a href="results.html?genre=&prefix=K">K</a>
+            <a href="results.html?genre=&prefix=L">L</a>
+            <a href="results.html?genre=&prefix=M">M</a>
+            <a href="results.html?genre=&prefix=N">N</a>
+            <a href="results.html?genre=&prefix=O">O</a>
+            <a href="results.html?genre=&prefix=P">P</a>
+            <a href="results.html?genre=&prefix=Q">Q</a>
+            <a href="results.html?genre=&prefix=R">R</a>
+            <a href="results.html?genre=&prefix=S">S</a>
+            <a href="results.html?genre=&prefix=T">T</a>
+            <a href="results.html?genre=&prefix=U">U</a>
+            <a href="results.html?genre=&prefix=V">V</a>
+            <a href="results.html?genre=&prefix=W">W</a>
+            <a href="results.html?genre=&prefix=X">X</a>
+            <a href="results.html?genre=&prefix=Y">Y</a>
+            <a href="results.html?genre=&prefix=Z">Z</a>
+        </div>
+        <div class = "numbers-asterisk">
+            <a href="results.html?genre=&prefix=0">0</a>
+            <a href="results.html?genre=&prefix=1">1</a>
+            <a href="results.html?genre=&prefix=2">2</a>
+            <a href="results.html?genre=&prefix=3">3</a>
+            <a href="results.html?genre=&prefix=4">4</a>
+            <a href="results.html?genre=&prefix=5">5</a>
+            <a href="results.html?genre=&prefix=6">6</a>
+            <a href="results.html?genre=&prefix=7">7</a>
+            <a href="results.html?genre=&prefix=8">8</a>
+            <a href="results.html?genre=&prefix=9">9</a>
+            <a href="results.html?genre=&prefix=*">*</a>
+        </div>
+    </div>
+
+    <!-- Load jQuery and Bootstrap JS -->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- include jquery autocomplete JS  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.11/jquery.autocomplete.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Load your own JS file -->
+    <!-- The path is relative to index.html, since these two files are in the same directory -->
+    <!-- Note the url does not contain a "/" in the beginning, which means the url is relative to the current path
+         otherwise the url is relative to the root path -->
+    <script src="index.js"></script>
+    <script src="autocomplete.js"></script>
+</body>
+
+</html>

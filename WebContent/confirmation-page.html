@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="background.css">
+    <title>Confirmation Page</title>
+
+    <style>
+        #sales_table {
+            margin: 0 auto;
+            max-width: 80%;
+            text-align: center;
+            background-color: #ffffff; /* White for the table background */
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #table_first_row
+        {
+            background: #ffd200;
+        }
+
+        #confirmation_header{
+            margin: 0 auto;
+            display: flex;
+            position: relative;
+            & :is(h1) {
+                text-align: center;
+                width: 100%;
+            }
+        }
+
+        #total_sales_price {
+            height: 70px;
+            text-align: center;
+            & :is(p) {
+                position: relative;
+                margin-left: 75%;
+                top: 10px;
+                text-align: center;
+                border-radius: 25px;
+                background: #FFFFFF;
+                width: 150px;
+                height: 50px;
+            }
+        }
+
+        #back_to_home_button {
+            font-size: 0.5cm;
+            border-color: black;
+            text-align: center;
+            & :is(button)
+            {
+                cursor: pointer;
+            }
+        }
+
+        #sale_id {
+            text-align: left;
+            font-size: 2rem;
+            padding-left: 10%;
+            color: white
+        }
+    </style>
+</head>
+<body>
+    <div id="top-bar">
+        <!-- Links -->
+        <div id="links">
+            <a href="index.html">Home</a>
+            <a href="top20movies.html">Top20</a>
+            <a href="results.html">Movie List Page</a>
+            <a href="cart.html">Checkout</a>
+        </div>
+    </div>
+
+    <div id="confirmation_header">
+        <h1>Confirmation Page</h1>
+    </div>
+
+    <div id="sale_id"></div>
+
+    <table id=sales_table class="table table-striped">
+        <!-- Create a table header -->
+        <thead>
+        <tr id = "table_first_row">
+            <!-- Titles of each column-->
+            <th>Title</th>
+            <th>Quantity of Title</th>
+            <th>Price of Title</th>
+            <th>Total</th>
+        </tr>
+        </thead>
+        <!-- Table body is left empty here, will be populated with the data retrieved with top20movies.js -->
+        <!-- Again, id "movies_table_body" is useful for jQuery to find this html element -->
+        <tbody id=sales_table_body></tbody>
+    </table>
+
+    <div id = "total_sales_price"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Load our own JS file -->
+    <!-- The path is relative to top20movies.html, since these two files are in the same directory -->
+    <!-- Note the url does not contain a "/" in the beginning, which means the url is relative to current path
+         otherwise the url is relative to the root path-->
+    <script src="confirmation-page.js"></script>
+
+</body>
+</html>

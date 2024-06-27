@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="background.css">
+
+    <title>Search Results</title>
+    <style>
+        #results_table {
+            margin: 0 auto;
+            max-width: 80%;
+            text-align: center;
+            background-color: #ffffff; /* White for the table background */
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #results_table_body {
+            text-align: center;
+        }
+
+        #results_table_first_row
+        {
+            background: #ffd200;
+            color: black;
+        }
+
+        #sorting_and_pagination {
+            text-align: left;
+            padding-left: 10%;
+        }
+
+        #sorting_submit {
+            background: #ffd200;
+        }
+
+        #previous_next_buttons {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        #page_number_display {
+            width: 50px;
+            height: 35px;
+            text-align: center;
+            border: 1px solid black;
+            font-size: 1.5em;
+        }
+
+        button {
+            margin: 0 10px;
+        }
+
+        #sort_form {
+            color: white;
+        }
+
+        #fulltext-search-bar {
+            width: 500px
+        }
+    </style>
+</head>
+<body>
+    <div id="top-bar">
+        <!-- Links -->
+        <div id="links">
+            <a href="index.html">Home</a>
+            <a href="top20movies.html">Top20</a>
+            <a href="results.html">Movie List Page</a>
+            <a href="cart.html">Checkout</a>
+        </div>
+
+        <form id="fulltext-search" method="POST" action ="#">
+            <label>
+                <input name="fulltext-query" type="text" id="fulltext-search-bar"
+                       placeholder="Fulltext Search">
+                <input type="submit" class="search-button" value="Search">
+            </label>
+        </form>
+    </div>
+
+    <h1 id="results_text"></h1>
+
+    <div id="sorting_and_pagination">
+        <form id = "sort_form" method = "POST" action = "#">
+            <label for="sorting_option">Sort by:</label>
+            <select id="sorting_option" name="sort">
+                <option value="0" >Title ↑, Rating ↑</option>
+                <option value="1">Title ↑, Rating ↓</option>
+                <option value="2">Title ↓, Rating ↑</option>
+                <option value="3">Title ↓, Rating ↓</option>
+                <option value="4">Rating ↑, Title ↑</option>
+                <option value="5">Rating ↑, Title ↓</option>
+                <option value="6">Rating ↓, Title ↑</option>
+                <option value="7">Rating ↓, Title ↓</option>
+            </select>
+
+            <label for="num_results_per_page">Movies Per Page:</label>
+            <select id="num_results_per_page" name="n">
+                <option value="10">10 Results</option>
+                <option value="25">25 Results</option>
+                <option value="50">50 Results</option>
+                <option value="100">100 Results</option>
+            </select>
+
+            <input type="submit" id="sorting_submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- Id "results_table" is useful for jQuery to find the html element with id, class here is mapping to Bootstrap defined class CSS -->
+    <table id=results_table class="table table-striped">
+        <!-- Create a table header -->
+        <thead>
+        <tr id = "results_table_first_row">
+            <!-- Titles of each column-->
+            <th>Title</th>
+            <th>Year</th>
+            <th>Director</th>
+            <th>Genres</th>
+            <th>Stars</th>
+            <th>Rating</th>
+            <th>Cart</th>
+        </tr>
+        </thead>
+        <!-- Table body is left empty here, will be populated with the data retrieved with top20movies.js -->
+        <!-- Again, id "movies_table_body" is useful for jQuery to find this html element -->
+        <tbody id=results_table_body></tbody>
+    </table>
+
+    <div id="previous_next_buttons">
+        <button id="previous_page" type="submit" onclick="submitPageDec()" value="-1">Previous Page</button>
+        <input name="page_number" id="page_number_display" type="text" value="1" readonly>
+        <button id="next_page" type="submit" onclick="submitPageInc()" value="1">Next Page</button>
+    </div>
+
+    <!-- Load jQuery and Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- include jquery autocomplete JS  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.11/jquery.autocomplete.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- include our own JS file -->
+    <script src="results.js"></script>
+    <script src="autocomplete.js"></script>
+</body>
+</html>

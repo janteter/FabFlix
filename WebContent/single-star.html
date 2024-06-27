@@ -1,0 +1,104 @@
+<!-- This example is following frontend and backend separation.
+
+    This .html performs two steps:
+    1. Create a html template skeleton, with all the elements defined (some left empty) and named with ids.
+    2. Load single-star.js to populate the data into empty elements.
+    -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="background.css">
+
+    <title id = "star_title"></title>
+    <style>
+        #star_info {
+            justify-content: space-evenly;
+            text-align: center;
+            /*margin-bottom: 30px;*/
+            background-color: #3D59AB; /* Blue for the header */
+            color: #ffffff; /* White text color for the header */
+            padding: 10px;
+        }
+
+        #movie_table {
+            margin: 0 auto;
+            max-width: 80%;
+            text-align: center;
+            background-color: #ffffff; /* White for the table background */
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #movie_table_body {
+            text-align: center;
+        }
+
+        #table_first_row
+        {
+            background: #ffd200;
+        }
+
+        #fulltext-search-bar {
+            width: 500px
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top-bar">
+        <!-- Links -->
+        <div id="links">
+            <a href="index.html">Home</a>
+            <a href="top20movies.html">Top20</a>
+            <a href="results.html">Movie List Page</a>
+            <a href="cart.html">Checkout</a>
+        </div>
+
+        <form id="fulltext-search" method="POST" action ="#">
+            <label>
+                <input name="fulltext-query" type="text" id="fulltext-search-bar"
+                       placeholder="Fulltext Search">
+                <input type="submit" class="search-button" value="Search">
+            </label>
+        </form>
+    </div>
+    <h1 id="star_info"></h1>
+    <!--<a href="top20movies.html">To Top20 Movies</a>-->
+
+    <table id=movie_table class="table table-striped">
+        <thead>
+        <tr id = "table_first_row">
+            <th>Movies</th>
+        </tr>
+        </thead>
+
+        <!-- Table body is left empty here, will be populated with the data retrieved with single-star.js -->
+        <!-- single-star.js will find this html element by it's id "movie_table_body" -->
+        <tbody id=movie_table_body></tbody>
+    </table>
+
+    <!-- Load jQuery and Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- include jquery autocomplete JS  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.11/jquery.autocomplete.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Load our own JS file -->
+    <!-- The path is relative to single-star.html, since these two files are in the same directory -->
+    <!-- Note the url does not contain a "/" in the beginning, which means the url is relative to current path
+         otherwise the url is relative to the root path-->
+    <script src="single-star.js"></script>
+    <script src="autocomplete.js"></script>
+</body>
+</html>
